@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FAF9F5; /* Warm minimalist premium newspaper background */
+}
+
+.dark body {
+  background-color: #0A0B0D; /* Sleek midnight obsidian dark background */
+}
+
+/* Custom Webkit scrollbar for a highly polished editorial aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.4);
+}
+
+/* Premium Masonry grid */
+.masonry-grid {
+  columns: 1;
+  column-gap: 1.75rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid { columns: 2; }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid { columns: 3; }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.75rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Fade-in and elegant slide-up entrance animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

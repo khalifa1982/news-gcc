@@ -1,0 +1,8 @@
+{
+  "name": "GCC News Syndication",
+  "description": "An AI-powered automated news syndication, verification, and publishing platform tailored specifically for the GCC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

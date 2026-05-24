@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "NewsItem": {
+      "title": "NewsItem",
+      "description": "A verified or disputed redrafted news article in the GCC region.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "content": { "type": "string" },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "imageUrl": { "type": "string" },
+        "sources": { "type": "array" },
+        "locationTags": { "type": "array" },
+        "categoryTags": { "type": "array" },
+        "verifiedStatus": { "type": "string" }
+      },
+      "required": [
+        "id",
+        "headline",
+        "content",
+        "publishedAt",
+        "imageUrl",
+        "sources",
+        "locationTags",
+        "categoryTags",
+        "verifiedStatus"
+      ]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Public profile details of a user.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" }
+      },
+      "required": ["uid", "displayName"]
+    },
+    "PrivateUserInfo": {
+      "title": "PrivateUserInfo",
+      "description": "Secure private user info containing PII.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "emailVerified": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "emailVerified", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/news/{newsId}": {
+      "schema": "NewsItem",
+      "description": "Collection of all news articles in GCC."
+    },
+    "/users/{userId}/public/profile": {
+      "schema": "UserProfile",
+      "description": "Public profile of a user."
+    },
+    "/users/{userId}/private/info": {
+      "schema": "PrivateUserInfo",
+      "description": "Private sensitive details for a user."
+    }
+  }
+}
